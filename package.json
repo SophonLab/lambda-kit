@@ -6,7 +6,6 @@
   "repository": "https://github.com/SophonLab/lambda-kit",
   "author": "SophonLLC",
   "license": "MIT",
-  "private": false,
   "scripts": {
     "format": "prettier --write index.js"
   },
