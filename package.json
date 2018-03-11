@@ -1,0 +1,16 @@
+{
+  "name": "@sophon-lab/lambda-kit",
+  "version": "1.0.0",
+  "description": "Common convenient utility functions for working with AWS lambda",
+  "main": "index.js",
+  "repository": "https://github.com/SophonLab/lambda-kit",
+  "author": "SophonLLC",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "format": "prettier --write index.js"
+  },
+  "dependencies": {
+    "prettier": "^1.11.1"
+  }
+}
