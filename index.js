@@ -1,15 +1,20 @@
-function respond(callback, code, body) {
-  if (typeof body === 'string' || body instanceof String) {
-    return callback(null, {
-      statusCode: code,
-      body: body
-    });
+function stringify(body) {
+  if (typeof body === "string" || body instanceof String) {
+    return body;
   } else {
-    return callback(null, {
-      statusCode: code,
-      body: JSON.stringify(body)
-    });
+    return JSON.stringify(body);
   }
+}
+
+function respond(callback, code, body) {
+  return callback(null, {
+    statusCode: code,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Credentials": true
+    },
+    body: stringify(body)
+  });
 }
 
 function unauthorizedRequest(callback, message = "Unauthorized Request") {

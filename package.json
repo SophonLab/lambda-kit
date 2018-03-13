@@ -1,6 +1,6 @@
 {
   "name": "@sophon-lab/lambda-kit",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Common convenient utility functions for working with AWS lambda",
   "main": "index.js",
   "repository": "https://github.com/SophonLab/lambda-kit",
