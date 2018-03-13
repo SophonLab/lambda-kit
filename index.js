@@ -1,8 +1,15 @@
 function respond(callback, code, body) {
-  return callback(null, {
-    statusCode: code,
-    body: JSON.stringify({ message: message })
-  });
+  if (typeof body === 'string' || body instanceof String) {
+    return callback(null, {
+      statusCode: code,
+      body: body
+    });
+  } else {
+    return callback(null, {
+      statusCode: code,
+      body: JSON.stringify(body)
+    });
+  }
 }
 
 function unauthorizedRequest(callback, message = "Unauthorized Request") {
@@ -11,6 +18,10 @@ function unauthorizedRequest(callback, message = "Unauthorized Request") {
 
 function serverError(callback, error) {
   return respond(callback, 500, { message: error.message || error });
+}
+
+function unprocessableEntity(callback, message = "Unprocessable Entity") {
+  return respond(callback, 422, { message: message });
 }
 
 function ok(callback, response) {
@@ -32,6 +43,7 @@ function getAuthContext(event, key) {
 }
 
 module.exports = {
+  unprocessableEntity: unprocessableEntity,
   unauthorizedRequest: unauthorizedRequest,
   serverError: serverError,
   ok: ok,
